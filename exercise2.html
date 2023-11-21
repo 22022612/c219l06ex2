@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Your Webpage</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#">Menu 1</a></li>
+            <li><a href="#">Menu 2</a></li>
+            <li><a href="#">Menu 3</a></li>
+        </ul>
+    </nav>
+
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item"><img src="Artboard 2_1.png" alt="Image 1"></div>
+            <div class="carousel-item"><img src="Artboard 2_2.png" alt="Image 2"></div>
+            <div class="carousel-item"><img src="Artboard 2_3.png" alt="Image 3"></div>
+        </div>
+    </div>
+    <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+    
+    <!-- Cards -->
+    <div class="card-container">
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="Kim Minji.jpg" alt="Card 1 Image">
+            <h2>Title 1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quae est provident</p>
+            <button>Learn More</button>
+            <div class="footer">Footer 1</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <!-- Similar structure for Card 2 content -->
+            <img src="Log in to X _ X.jpg" alt="Card 1 Image">
+            <h2>Title 1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quae est provident</p>
+            <button>Learn More</button>
+            <div class="footer">Footer 1</div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <!-- Similar structure for Card 3 content -->
+            <img src="minji.jpg " alt="Card 1 Image">
+            <h2>Title 1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quae est provident</p>
+            <button>Learn More</button>
+            <div class="footer">Footer 1</div>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+    
+        function showSlide(index) {
+            const carouselInner = document.querySelector('.carousel-inner');
+            const itemWidth = document.querySelector('.carousel-item').offsetWidth;
+            const newPosition = -index * itemWidth;
+    
+            carouselInner.style.transform = `translateX(${newPosition}px)`;
+            currentIndex = index;
+        }
+    
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + 3) % 3; // Adjust the modulo based on the number of items
+            showSlide(currentIndex);
+        }
+    
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % 3; // Adjust the modulo based on the number of items
+            showSlide(currentIndex);
+        }
+    </script>
+</body>
+</html>
